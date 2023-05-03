@@ -9,7 +9,7 @@ const Banner = () => {
                 <p className='fw-semibold d-flex flex-column justify-content-center align-items-center fs-7 text-start text-wrap mt-4 pt-5'>Bangladeshi Canteen is a restaurant with chefs from different districts of Bangladesh, each an expert in traditional cuisine from their region. From spicy curries to flavorful fish dishes, they offer a diverse range of authentic Bangladeshi food.
                 
                 </p>
-                <Button className='button' >See Menu</Button>
+                <Button className='bg-danger w-25 text-white fw-semibold border-0' >See Menu</Button>
                 
              
                 

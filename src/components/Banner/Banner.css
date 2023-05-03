@@ -1,11 +1,11 @@
 .button{
     width: 25%;
-    background-color: rgba(23, 178, 23, 0.88);
+    
     
 }
 .button:hover{
     background-color: rgb(7, 90, 7);
 }
 .banner-p{
-    margin-top: 10%;
+    margin-top: 7%;
 }
