@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './Chefs.css';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { PacmanLoader } from 'react-spinners';
 const Chefs = () => {
+    const {loading} = useContext(AuthContext);
     const [chefs, setChefs] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/chefs')
@@ -16,7 +19,11 @@ const Chefs = () => {
 
     return (
         <div>
-            <h1 className='text-center fw-bold mt-2 text-danger'>Our Chefs</h1>
+            {
+                loading ? <p><PacmanLoader color="rgba(54, 215, 183, 1)" />
+                </p> :
+                <div>
+                                <h1 className='text-center fw-bold mt-2 text-danger'>Our Chefs</h1>
             <Row xs={1} md={2} className="g-4 mt-5 shadow">
                 {chefs.map((chef) => (
                     <Col>
@@ -42,9 +49,8 @@ const Chefs = () => {
                     </Col>
                 ))}
             </Row>
-
-
-
+                </div>
+            }
 
 
         </div>

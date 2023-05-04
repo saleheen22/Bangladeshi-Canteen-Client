@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -8,7 +8,10 @@ import Header from '../Header/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from '../Footer/Footer';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { PacmanLoader } from 'react-spinners';
 const Recipes = () => {
+    const {loading} = useContext(AuthContext);
     const recipes = useLoaderData();
     console.log(recipes[0].id);
     const [chefs, setChefs] = useState([]);
@@ -26,12 +29,17 @@ const Recipes = () => {
     }
 
     return (
-  
+
 
         <div>
             <Header></Header>
-
-            <div className='d-flex justify-content-between mt-4 container bg-danger'>
+            {
+               loading ? <>
+                <PacmanLoader color="rgba(54, 215, 183, 1)" />
+               
+               </>: 
+               <>
+                          <div className='d-flex justify-content-between mt-4 container bg-danger'>
                 <div className='d-flex flex-column fs-7 text-start text-wrap '>
                     <p className='d-flex flex-column justify-content-center align-items-center fs-7 text-start text-wrap mt-4 pt-5 ms-0 ps-0 '>
                         <h3 className='text-start'>{seletedChef?.name}</h3>
@@ -74,7 +82,7 @@ const Recipes = () => {
                                         <td>{recipe?.recipe_name}</td>
                                         <td>
                                             <ol>
-                                               
+
 
                                                 {recipe?.ingredients.map(name => (
                                                     <li>
@@ -86,8 +94,8 @@ const Recipes = () => {
                                         <td>{recipe?.cooking_method}</td>
                                         <td>{recipe?.rating}</td>
                                         <td>
-                                        <Button className='bg-danger text-white fw-semibold border-0' onClick={handleFavourite}>Favourite</Button>
-                                        <ToastContainer />
+                                            <Button className='bg-danger text-white fw-semibold border-0' onClick={handleFavourite}>Favourite</Button>
+                                            <ToastContainer />
                                         </td>
                                     </tr>
 
@@ -103,6 +111,9 @@ const Recipes = () => {
 
 
             </div>
+               </> 
+            }
+        
             <Footer></Footer>
         </div>
     );

@@ -7,11 +7,12 @@ import logo from '../../assets/logo.png';
 import Badge from 'react-bootstrap/Badge'
 import { Link, NavLink, Navigate } from 'react-router-dom';
 import logo1 from '../../assets/logo-black.png';
+import { PacmanLoader } from 'react-spinners';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 const Header = () => {
     
 
-    const {user, logOut} = useContext(AuthContext);
+    const {user, logOut, loading} = useContext(AuthContext);
     const [name, setName] = useState('');
     const handlehover = () => {
         setName(user?.displayName);
@@ -42,7 +43,11 @@ const Header = () => {
                         <Nav.Link  className=' text-black' >Contact</Nav.Link>
                     </Nav>
 
-                    {
+   {
+    loading ? <>
+    <PacmanLoader color="rgba(54, 215, 183, 1)" />
+    </>:<>
+                     {
                         user ?   <div className='d-flex '>
                              <p className='mt-3'>{name}</p>
                             <div>
@@ -58,6 +63,8 @@ const Header = () => {
                           </Link>  </Navbar.Brand>
 
                     }
+    </>
+   }
                   
 
                 </Container>
