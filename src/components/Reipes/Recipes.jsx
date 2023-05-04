@@ -51,7 +51,7 @@ const Recipes = () => {
             </div>
             <div className='container mt-5'>
                 <h2>Best Recipe Info</h2>
-                <p>{seletedChef?.name} is excel in many recipes. Some of them are given below:</p>
+                <p>{seletedChef?.name} excels in many recipes. Some of them are given below:</p>
                 <Table className='bg-info' striped bordered hover>
                     <thead>
                         <tr>
