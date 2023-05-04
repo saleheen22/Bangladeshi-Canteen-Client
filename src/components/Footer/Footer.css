@@ -1,4 +1,12 @@
 .footer{
-    background-color: rgb(34, 34, 108);
+    background-color: #96a89a;
     width: 100% !important;
+}
+.footer img{
+    height: 100px;
+    margin-bottom: 100x;
+}
+.copy-right{
+    margin-left: 61%;
+    margin-top: 10px;
 }

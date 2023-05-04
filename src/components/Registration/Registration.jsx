@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Footer from '../Footer/Footer';
 
 const Registration = () => {
     const {createUser} = useContext(AuthContext);
@@ -68,6 +69,7 @@ const Registration = () => {
                     <p className='text-danger'><h2>{error}</h2></p>
                 </Form>
             </div>
+            <Footer></Footer>
         </div>
 
     );
