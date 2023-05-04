@@ -5,7 +5,7 @@ import chef1 from '../../assets/chef1.jpg';
 import chef2 from '../../assets/chef2.jpg';
 import logo from '../../assets/logo.png';
 import Badge from 'react-bootstrap/Badge'
-import { Navigate } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 import logo1 from '../../assets/logo-black.png';
 const Header = () => {
 
@@ -17,9 +17,9 @@ const Header = () => {
                     <img src={logo1} alt="" />
                     </Navbar.Brand>
                     <Nav >
-                        <Nav.Link className='fw-bold text-black' >Home</Nav.Link>
-                        <Nav.Link  className='fw-bold text-black' >Blog</Nav.Link>
-                        <Nav.Link  className='fw-bold text-black' >Contact</Nav.Link>
+                        <Nav.Link className='text-black n-active' ><NavLink to= "/">Home</NavLink></Nav.Link>
+                        <Nav.Link  className=' text-black ' ><NavLink className= "n-active" to= "/blog">Blog</NavLink></Nav.Link>
+                        <Nav.Link  className=' text-black' >Contact</Nav.Link>
                     </Nav>
                     <Navbar.Brand  className='fw-bold'>Login</Navbar.Brand>
 

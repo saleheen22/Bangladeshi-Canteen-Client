@@ -7,3 +7,12 @@
     
     height: 80px;
 }
+nav a.active{
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
