@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -7,6 +7,7 @@ const Registration = () => {
     const {createUser} = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
     const [error, setError] = useState('');
+
 
 
 
@@ -28,11 +29,11 @@ const Registration = () => {
 
             })
             .catch(error => {
-                setError(error);
+                setError(error.message);
             })
 
         form.reset(); 
-        setError("You have successfully register to Bangldeshi Canteen website. Now you can login")   
+        setError("You have successfully register to Bangladeshi Canteen website. Now you can login")   
       
     }
     
