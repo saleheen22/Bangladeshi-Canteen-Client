@@ -18,8 +18,7 @@ const Recipes = () => {
             .catch(error => console.log(error))
     }, [])
     const seletedChef = chefs.find(n => n.id == recipes[0].id);
-    const pic = 'https://balbetta.sirv.com/pics/fatima-akter-removebg-preview.png';
-    
+
     return (
 
         <div>
@@ -41,7 +40,7 @@ const Recipes = () => {
                 </div>
 
 
-                <img className='ms-4 px-4 img img-fluid w-50' src={pic} alt="" />
+                <img className='ms-4 px-4 img img-fluid w-50' src={seletedChef?.image_trasnparent} alt="" />
 
             </div>
         </div>
