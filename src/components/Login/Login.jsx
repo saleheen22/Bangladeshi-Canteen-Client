@@ -2,13 +2,19 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import Form from 'react-bootstrap/Form';
 import Header from '../Header/Header';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Footer from '../Footer/Footer';
 
 const Login = () => {
     const [error, setError] = useState('');
     const { signInEmailPass, signInGoogle, signInGithub} = useContext(AuthContext); 
+
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
@@ -20,6 +26,7 @@ const Login = () => {
             .then(result =>{
                 const loggedUser = result.user;
                 console.log("user:", loggedUser);
+                navigate(from, {replace: true})
             })
             .catch(error=>{
                 console.log(error);
@@ -34,6 +41,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log("user:", loggedUser);
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 console.log(error);
@@ -45,6 +53,7 @@ const Login = () => {
             .then(result =>{
                 const loggedUser = result.user;
                 console.log("User github", loggedUser)
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 console.log(error)
@@ -81,6 +90,7 @@ const Login = () => {
             </Form>
             
         </div>
+        <Footer></Footer>
       </div>
     );
 };

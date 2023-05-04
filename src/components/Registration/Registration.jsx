@@ -33,7 +33,7 @@ const Registration = () => {
             })
 
         form.reset(); 
-        setError("You have successfully register to Bangladeshi Canteen website. Now you can login")   
+        setError("You have successfully register to Bangladeshi Canteen website.")   
       
     }
     
