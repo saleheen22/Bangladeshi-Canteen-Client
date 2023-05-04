@@ -2,6 +2,7 @@ import { Children } from "react";
 import Main from "../layout/Main";
 import { createBrowserRouter } from "react-router-dom";
 import Recipes from "../components/Reipes/Recipes";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       element: <Recipes></Recipes>,
       loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
       
+    },
+    {
+      path: "*",
+      element: <NotFound></NotFound>
     }
    
   ]);
