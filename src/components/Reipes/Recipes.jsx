@@ -16,7 +16,7 @@ const Recipes = () => {
     console.log(recipes[0].id);
     const [chefs, setChefs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://b7a10-chef-recipe-hunter-server-side-sal-muntasaleheen-gmailcom.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.log(error))

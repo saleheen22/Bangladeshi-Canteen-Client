@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     {
       path: '/recipes/:id',
       element: <PrivateRouter><Recipes></Recipes></PrivateRouter>,
-      loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+      loader: ({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-sal-muntasaleheen-gmailcom.vercel.app/recipes/${params.id}`)
       
     },
     {

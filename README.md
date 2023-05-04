@@ -4,4 +4,7 @@
 * React Dynamic routing also integrated 
 * The Active link, spinner when data is loading,a custom 404 page are also incorporated in this project
 
+Here is the Link of live website :
+https://banglar-canteen-254f0.web.app/
+
 

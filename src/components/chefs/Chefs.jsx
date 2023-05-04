@@ -7,11 +7,12 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { PacmanLoader } from 'react-spinners';
+import LazyLoad from 'react-lazy-load';
 const Chefs = () => {
     const {loading} = useContext(AuthContext);
     const [chefs, setChefs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://b7a10-chef-recipe-hunter-server-side-sal-muntasaleheen-gmailcom.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.log(error))
@@ -28,7 +29,9 @@ const Chefs = () => {
                 {chefs.map((chef) => (
                     <Col>
                         <Card className='h-100 shadow'>
-                            <Card.Img variant="top" className='img-circle' src={chef.image_url} />
+                           <LazyLoad offset={300}>
+                           <Card.Img variant="top" className='img-circle' src={chef.image_url} />
+                           </LazyLoad>
                             <Card.Body className='chef shadow'>
                                 <Card.Title>{chef.name}</Card.Title>
                                 <Card.Text>
