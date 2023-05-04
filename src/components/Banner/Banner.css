@@ -9,3 +9,10 @@
 .banner-p{
     margin-top: 7%;
 }
+
+@media screen and (max-width: 576px) {
+    .banner2 img{
+      height: auto;
+      width: 100%;
+    }
+  }

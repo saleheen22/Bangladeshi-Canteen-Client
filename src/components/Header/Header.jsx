@@ -1,11 +1,8 @@
 import React, { useContext, useState } from 'react';
 import './Header.css';
 import { Button, Carousel, Container, Nav, Navbar } from 'react-bootstrap';
-import chef1 from '../../assets/chef1.jpg';
-import chef2 from '../../assets/chef2.jpg';
-import logo from '../../assets/logo.png';
-import Badge from 'react-bootstrap/Badge'
-import { Link, NavLink, Navigate } from 'react-router-dom';
+
+import { Link,  Navigate, NavLink } from 'react-router-dom';
 import logo1 from '../../assets/logo-black.png';
 import { PacmanLoader } from 'react-spinners';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -32,8 +29,8 @@ const Header = () => {
     console.log(user);
     return (
         <div >
-            <Navbar >
-                <Container className='d-flex justify-content-between' >
+            <Navbar>
+                <Container className='d-md-flex justify-content-between' >
                     <Navbar.Brand className='logo' href="/"> 
                     <img src={logo1} alt="" />
                     </Navbar.Brand>

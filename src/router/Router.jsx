@@ -6,6 +6,7 @@ import NotFound from "../components/NotFound/NotFound";
 import Blog from "../components/Blog/Blog";
 import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     },
     {
       path: '/recipes/:id',
-      element: <Recipes></Recipes>,
+      element: <PrivateRouter><Recipes></Recipes></PrivateRouter>,
       loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
       
     },
