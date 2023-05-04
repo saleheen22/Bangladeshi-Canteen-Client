@@ -5,7 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button, Table } from 'react-bootstrap';
 import Header from '../Header/Header';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Recipes = () => {
     const recipes = useLoaderData();
     console.log(recipes[0].id);
@@ -17,9 +18,14 @@ const Recipes = () => {
             .catch(error => console.log(error))
     }, [])
     const seletedChef = chefs.find(n => n.id == recipes[0].id);
-    console.log(recipes);
+
+    const handleFavourite = (event) => {
+        event.currentTarget.disabled = true;
+        toast("The recipe is your fav!");
+    }
 
     return (
+  
 
         <div>
             <Header></Header>
@@ -54,6 +60,7 @@ const Recipes = () => {
                             <th>Ingredients</th>
                             <th>Cooking Method</th>
                             <th>Rating</th>
+                            <th>Favourite</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +84,10 @@ const Recipes = () => {
                                         </td>
                                         <td>{recipe?.cooking_method}</td>
                                         <td>{recipe?.rating}</td>
+                                        <td>
+                                        <Button className='bg-danger text-white fw-semibold border-0' onClick={handleFavourite}>Favourite</Button>
+                                        <ToastContainer />
+                                        </td>
                                     </tr>
 
                                 </>
